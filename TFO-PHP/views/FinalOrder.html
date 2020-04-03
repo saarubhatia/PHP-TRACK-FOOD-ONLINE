@@ -1,0 +1,248 @@
+<html>
+
+<head>
+    <title> Order Page </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <link href="fontawesome-free-5.12.0-web\css\all.css" rel="stylesheet">
+    <link href="../public/stylesheets/style5.css" rel="stylesheet">
+    <script src="order.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <h2 class="card-header">Delivery Address</h2>
+                        <div class="card-body">
+                            <form>
+                                <div>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput2">City <span class="red">*</span> </label>
+                                        <input type="text" class="form-control input" id="formGroupExampleInput2"
+                                            required placeholder="Enter your city name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput2">PinCode <span class="red">*</span></label>
+                                        <input type="text" class="form-control input" id="formGroupExampleInput2" maxlength="6"
+                                            required="" placeholder="Enter your pincode">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput2">Location <span class="red">*</span></label>
+                                        <input type="text" class="form-control input" id="formGroupExampleInput2"
+                                            required placeholder="Location/ LandMark">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput2">Street <span class="red">*</span> </label>
+                                        <input type="text" class="form-control input" id="formGroupExampleInput2"
+                                            required placeholder="Full Address">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput2">Contact Number <span class="red">*</span>
+                                        </label>
+                                        <input type="text" class="form-control input" id="formGroupExampleInput2" maxlength="10"
+                                            required="" placeholder="Enter your Phone Number">
+                                    </div>
+                                </div>
+                                <button class="btn btn-lg done" type="button"
+                                    style="float:right; width: -webkit-fill-available;padding: 10px 16px;"> Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <br>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <h2 class="card-header">Payment Method</h2>
+                        <div class="card-body">
+                            <div>
+                                <!-- Trigger the modal with a button -->
+                                <button type="button" class="btn btn-lg pay-method" id="dcbtn" data-toggle="modal"
+                                    data-target="#myModal">Debit Card</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close"
+                                                    data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Add your card details</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="card-details">
+                                                    <aside>Name On Card:</aside>
+                                                    <input type="text" name="name" placeholder="Name On Card"
+                                                        required="" />
+                                                </div>
+                                                <aside>Card Number:</aside>
+                                                <div class="card-container">
+                                                    <div class="card-type"></div>
+                                                    <input type="text" name="card number"
+                                                        placeholder="0000 0000 0000 0000" maxlength="19"
+                                                        onkeyup="$cc.validate(event)" required="" />
+                                                    <div class="card-valid"><i class="fa fa-check"
+                                                            aria-hidden="true"></i></div>
+                                                </div>
+                                                <div class="card-details agileits-Payouts">
+                                                    <div class="expiration">
+                                                        <aside>Expiration Date</aside>
+                                                        <input type="text" name="date"
+                                                            onkeyup="$cc.expiry.call(this,event)" maxlength="7"
+                                                            placeholder="mm/yyyy" required="" />
+                                                    </div>
+                                                    <div class="cvv">
+                                                        <aside>CVV</aside>
+                                                        <input type="text" name="cvv" placeholder="XXX" maxlength="3"
+                                                            required="" />
+                                                    </div>
+                                                    <div class="clear"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" id="paybtn1"
+                                                    data-dismiss="modal">
+                                                    PAY
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div>
+                                <!-- Trigger the modal with a button -->
+                                <button type="button" class="btn btn-lg pay-method" id="ccbtn" data-toggle="modal"
+                                    data-target="#myModal1">Credit Card </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal1" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close"
+                                                    data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Add your card details</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="card-details">
+                                                    <aside>Name On Card:</aside>
+                                                    <input type="text" name="name" placeholder="Name On Card"
+                                                        required="" />
+                                                </div>
+                                                <aside>Card Number:</aside>
+                                                <div class="card-container">
+                                                    <div class="card-type"></div>
+                                                    <input type="text" name="card number"
+                                                        placeholder="0000 0000 0000 0000" maxlength="19"
+                                                        onkeyup="$cc.validate(event)" required="" />
+                                                    <div class="card-valid"><i class="fa fa-check"
+                                                            aria-hidden="true"></i></div>
+                                                </div>
+                                                <div class="card-details agileits-Payouts">
+                                                    <div class="expiration">
+                                                        <aside>Expiration Date</aside>
+                                                        <input type="text" name="date"
+                                                            onkeyup="$cc.expiry.call(this,event)" maxlength="7"
+                                                            placeholder="mm/yyyy" required="" />
+                                                    </div>
+                                                    <div class="cvv">
+                                                        <aside>CVV</aside>
+                                                        <input type="text" name="cvv" placeholder="XXX" maxlength="3"
+                                                            required="" />
+                                                    </div>
+                                                    <div class="clear"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" id="paybtn2"
+                                                    data-dismiss="modal">
+                                                    PAY
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div>
+                                <button type="button" class="btn btn-lg pay-method COD">Cash on Delivery</button>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div>
+                    <h2>Order Review </h2>
+                    <div class="border" style="border:1px  grey">
+                        <div class="imagediv">
+                            <img class="imagefinal" src="../public/images/Chinese.jpg">
+                        </div>
+                        <div class="itemname">
+                            Item Name:
+                            <span class="name1">PIZZA </span>
+                        </div>
+                        <div class="def-number-input number-input safari_only">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                class="minus"></button>
+                            <input class="quantity" min="0" name="quantity" value="1" type="number">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                class="plus"></button>
+                        </div>
+                        <div>
+                            <input class="form-control form-control-lg formcolor suggestion" type="text"
+                                placeholder=" ''Any Suggestions? We will pass it on'''">
+                        </div>
+                        <div class="det">
+                            <div class="formar">
+                                <strong>Bill Details:</strong>
+                            </div>
+                            <div class="formar">
+                                Item Total:
+                                <span class="name2">PIZZA </span>
+                            </div>
+                            <div class="formar">
+                                Delivery Fee:
+                                <span class="name3">PIZZA </span>
+                            </div>
+                            <div class="formar">
+                                Total Discount:
+                                <span class="name4">PIZZA </span>
+                            </div>
+
+                            <hr>
+                            <div class="tax">
+                                Taxes and charges:
+                                <span class="name5">PIZZA </span>
+                            </div>
+
+                            <hr>
+                            <div>
+                                <strong>TO PAY: </strong>
+                                <span class="name6">PIZZA </span>
+                            </div>
+                        </div>
+                        <button class="btn _1gPB7">PLACE ORDER</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
